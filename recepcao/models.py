@@ -14,7 +14,7 @@ class Visitante(models.Model):
     sobrenome = models.CharField(max_length=50)
     telefone = models.CharField(max_length=50)
     destino = models.CharField(max_length=3, choices= DESTINO)
-    data = models.DateTimeField(null=True, blank="True")
+    data = models.DateTimeField(null=True, blank="True", )
 
     def __str__(self):
         return self.nome

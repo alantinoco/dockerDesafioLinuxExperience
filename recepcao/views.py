@@ -3,8 +3,8 @@ from .models import Visitante
 from .forms import VisitanteForm
 
 def index(request):
-    context = {}
-    return render(request, "index.html", context)
+    visitante = Visitante.objects.all()
+    return render(request, "index.html", {'visitante': visitante})
 
 def cadastro(request):
     form = VisitanteForm()

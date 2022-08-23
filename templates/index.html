@@ -11,8 +11,43 @@
     <title>Index</title>
   </head>
   <body>
-    <h1>index</h1>
+    {% block content %}
 
+    <div class="d-flex justify-content-center flex-nowrap">
+            <div class="mx-2 p-2">
+                <a href="{% url 'cadastro' %}">
+                    <button class="btn btn-primary btn-lg">Cadastrar Visitante</button>
+                  </a> 
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h3>Visitantes</h3>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sobrenome</th>
+                    <th scope="col">Destino</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for item in visitante %}
+                  <tr>
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.nome}}</td>
+                    <td>{{item.sobrenome}}</td>
+                    <td>{{item.destino}}</td>
+                  </tr>
+                  <tr>
+                {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
